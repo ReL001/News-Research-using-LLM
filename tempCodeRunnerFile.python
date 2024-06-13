@@ -1,0 +1,98 @@
+from newsapi import NewsApiClient
+
+# Init
+newsapi = NewsApiClient(api_key='1d57b75982f34579aaa830f5cbde9c68')
+
+# /v2/top-headlines
+stock_name = 'stock'  # Replace 'stock' with the desired stock name
+top_headlines = newsapi.get_top_headlines(q=stock_name,
+                                          sources='bbc-news,the-verge',
+                                          category='business',
+                                          language='en',
+                                          country='us')
+
+# /v2/everything
+all_articles = newsapi.get_everything(q=stock_name,
+                                      sources='bbc-news,the-verge',
+                                      domains='bbc.co.uk,techcrunch.com',
+                                      from_param='2017-12-01',
+                                      to='2017-12-12',
+                                      language='en',
+                                      sort_by='relevancy',
+                                      page=2)
+
+# /v2/top-headlines/sources
+sources = newsapi.get_sources()
+
+# Print the results
+print(top_headlines)
+print(all_articles)
+print(sources)
+
+# Access specific information from the results
+print(top_headlines['articles'][0]['title'])
+print(top_headlines['articles'][0]['description'])
+print(top_headlines['articles'][0]['url'])
+print(top_headlines['articles'][0]['publishedAt'])
+print(top_headlines['articles'][0]['content'])
+
+print(all_articles['articles'][0]['title'])
+print(all_articles['articles'][0]['description'])
+print(all_articles['articles'][0]['url'])
+print(all_articles['articles'][0]['publishedAt'])
+print(all_articles['articles'][0]['content'])
+
+print(sources['sources'][0]['id'])
+print(sources['sources'][0]['name'])
+print(sources['sources'][0]['description'])
+print(sources['sources'][0]['url'])
+print(sources['sources'][0]['category'])
+print(sources['sources'][0]['language'])
+print(sources['sources'][0]['country'])
+print(sources['sources'][0]['urlsToLogos'])
+print(sources['sources'][0]['sortBys'])
+
+print(top_headlines['totalResults'])
+print(all_articles['totalResults'])
+print(sources['status'])
+print(sources['totalResults'])
+
+print(top_headlines['status'])
+print(all_articles['status'])
+print(sources['status'])
+print(sources['totalResults'])
+
+print(top_headlines['articles'][0]['source']['name'])
+print(all_articles['articles'][0]['source']['name'])
+print(sources['sources'][0]['name'])
+print(sources['sources'][0]['name'])
+
+print(top_headlines['articles'][0]['author'])
+print(all_articles['articles'][0]['author'])
+print(sources['sources'][0]['author'])
+print(sources['sources'][0]['author'])
+
+print(top_headlines['articles'][0]['publishedAt'])
+print(all_articles['articles'][0]['publishedAt'])
+print(sources['sources'][0]['publishedAt'])
+print(sources['sources'][0]['publishedAt'])
+
+print(top_headlines['articles'][0]['content'])
+print(all_articles['articles'][0]['content'])
+print(sources['sources'][0]['content'])
+print(sources['sources'][0]['content'])
+
+print(top_headlines['articles'][0]['url'])
+print(all_articles['articles'][0]['url'])
+print(sources['sources'][0]['url'])
+print(sources['sources'][0]['url'])
+
+print(top_headlines['articles'][0]['description'])
+print(all_articles['articles'][0]['description'])
+print(sources['sources'][0]['description'])
+print(sources['sources'][0]['description'])
+
+print(top_headlines['articles'][0]['title'])
+print(all_articles['articles'][0]['title'])
+print(sources['sources'][0]['title'])
+print(sources['sources'][0]['title'])
