@@ -4,3 +4,4 @@ openai
 newsapi-python
 python-dotenv
 faiss-cpu  # or faiss-gpu if using GPU
+langchain-community
